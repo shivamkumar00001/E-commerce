@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: white;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .left {
+      width: 50%;
+      background: url("https://openthemagazine.com/wp-content/uploads/2019/11/Templewhere1.jpg") no-repeat center center/cover;
+      position: relative;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      color: white;
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    @font-face {
+  font-family: 'Segoe Script';
+  src: local('Segoe Script');
+  font-weight: bold;
+}
+
+  .overlay-text span {
+  display: block;
+  background-color: #588157;
+  padding: 6px 12px;
+  margin: 4px 0;
+  font-size: 36px;
+  font-family: 'Segoe Script', cursive;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+    .right {
+      width: 50%;
+      padding: 60px 80px;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #588157;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 300;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      height: 48px;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 200;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .role-selection {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .role-selection button {
+      padding: 8px 20px;
+      border: 1px solid #588157;
+      background: transparent;
+      color: #588157;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .signup-btn {
+      width: 100%;
+      background-color: #588157;
+      color: white;
+      height: 48px;
+      font-size: 16px;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #588157;
+      text-decoration: none;
+      font-weight: 400;
+      }
+      .role-selection button {
+  padding: 8px 20px;
+  border: 1px solid #588157;
+  background: transparent;
+  color: #588157;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.role-selection button.hovered {
+  background-color: #588157;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="overlay-text">
+        <span>Crafted culture, curated for you.</span>
+       
+      </div>
+    </div>
+    <div class="right">
+      <h2>Sign up</h2>
+      {% if message %}
+        <p style="color:red">{{message}}</p>
+      {% endif %}
+      <form action="/p" method="POST">
+        <div class="row">
+          <div class="form-group" style="flex: 1;">
+            <label>First name</label>
+            <input type="text" name="Name"  placeholder="Enter First Name" />
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter Last Name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name ="email" placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label>Create Password</label>
+          <input type="password" name ="password" placeholder="Create Password" />
+        </div>
+        <div class="form-group">
+          <label>Re-enter Password</label>
+          <input type="password" placeholder="Create Password" />
+        </div>
+        <div class="form-group">
+          <label>Sign up as</label>
+          <div class="role-selection">
+            <button type="button">Vendor</button>
+            <button type="button">Customer</button>
+            <button type="button">Admin</button>
+          </div>
+        </div>
+        <input type="submit" class="signup-btn" value="Sign Up" />
+        <div class="login-link">
+          Already have an account? <a href="/">LOG IN</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const roleButtons = document.querySelectorAll('.role-selection button');
+  
+    roleButtons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        button.classList.add('hovered');
+      });
+  
+      button.addEventListener('mouseleave', () => {
+        button.classList.remove('hovered');
+      });
+    });
+  </script>
+  
+  
+</body>
+</html>
